@@ -60,3 +60,17 @@ function zip() {
 // > zip()
 // []
 ```
+## Usar zip en cadenas, rangos, objetos de mapa, etc...
+```js
+function zip(arrays) {
+    return Array.apply(null, Array(arrays[0].length)).map(function(_, i) {
+        return arrays.map(function(array) {
+            return array[i]
+        })
+    });
+}
+
+JSON.stringify( zip(['abcde',[1,2,3,4,5]]) )
+
+// [["a",1],["b",2],["c",3],["d",4],["e",5]]
+```
